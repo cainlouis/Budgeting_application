@@ -18,30 +18,63 @@ open class MenuActivity : AppCompatActivity() {
         // Handle item selection
         return when (item.itemId) {
             R.id.about -> {
-                newAbout()
+                showAbout()
                 true
             }
             R.id.add_spending -> {
-//                showHelp()
+                showAddSpending()
                 true
             }
             R.id.clear_all_entries -> {
-//                showHelp()
+                showClearAllEntries()
                 true
             }
             R.id.display_current_status -> {
-//                showHelp()
+                showDisplayCurrentStatus()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun newAbout() {
+    private fun showAbout() {
 //        val editText = findViewById<EditText>(R.id.editTextTextPersonName)
 //        val message = editText.text.toString()
         val message = "HelloWorld"
         val intent = Intent(this, AboutActivity::class.java).apply {
+            putExtra(EXTRA_MESSAGE, message)
+        }
+        startActivity(intent)
+
+    }
+
+    private fun showAddSpending() {
+//        val editText = findViewById<EditText>(R.id.editTextTextPersonName)
+//        val message = editText.text.toString()
+        val message = "HelloWorld"
+        val intent = Intent(this, AddSpendingActivity::class.java).apply {
+            putExtra(EXTRA_MESSAGE, message)
+        }
+        startActivity(intent)
+
+    }
+
+    private fun showClearAllEntries() {
+//        val editText = findViewById<EditText>(R.id.editTextTextPersonName)
+//        val message = editText.text.toString()
+        val message = "HelloWorld"
+        val intent = Intent(this, ClearAllEntriesActivity::class.java).apply {
+            putExtra(EXTRA_MESSAGE, message)
+        }
+        startActivity(intent)
+
+    }
+
+    private fun showDisplayCurrentStatus() {
+//        val editText = findViewById<EditText>(R.id.editTextTextPersonName)
+//        val message = editText.text.toString()
+        val message = "HelloWorld"
+        val intent = Intent(this, DisplayCurrentStatusActivity::class.java).apply {
             putExtra(EXTRA_MESSAGE, message)
         }
         startActivity(intent)

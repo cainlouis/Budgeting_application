@@ -3,9 +3,9 @@ package com.example.budgetingapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class AboutActivity : MenuActivity() {
+class DisplayCurrentStatusActivity : MenuActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_about)
+        setContentView(R.layout.activity_display_current_status)
     }
 }
