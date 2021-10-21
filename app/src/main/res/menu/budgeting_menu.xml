@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/main"
+        android:title="@string/home" />
+    <item android:id="@+id/about"
+        android:title="@string/about" />
+    <item android:id="@+id/add_spending"
+        android:title="@string/add_spending" />
+    <item android:id="@+id/clear_all_entries"
+        android:title="@string/clear_all_entries" />
+    <item android:id="@+id/display_current_status"
+        android:title="@string/display_current_status" />
+</menu>

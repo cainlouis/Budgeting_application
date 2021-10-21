@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BudgetingApplication">
         <activity
+            android:name=".DisplayCurrentStatusActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ClearAllEntriesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AddSpendingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MenuActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AboutActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
