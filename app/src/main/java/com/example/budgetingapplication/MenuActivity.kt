@@ -7,6 +7,8 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 
+const val EXTRA_MESSAGE = "com.example.budgetingapplication.MESSAGE"
+
 open class MenuActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
@@ -17,6 +19,10 @@ open class MenuActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle item selection
         return when (item.itemId) {
+            R.id.main -> {
+                showHome()
+                true
+            }
             R.id.about -> {
                 showAbout()
                 true
@@ -35,6 +41,17 @@ open class MenuActivity : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun showHome() {
+//        val editText = findViewById<EditText>(R.id.editTextTextPersonName)
+//        val message = editText.text.toString()
+        val message = "HelloWorld"
+        val intent = Intent(this, MainActivity::class.java).apply {
+            putExtra(EXTRA_MESSAGE, message)
+        }
+        startActivity(intent)
+
     }
 
     private fun showAbout() {

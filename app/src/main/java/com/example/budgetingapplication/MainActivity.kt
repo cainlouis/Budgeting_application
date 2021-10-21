@@ -8,8 +8,6 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.EditText
 
-const val EXTRA_MESSAGE = "com.example.budgetingapplication.MESSAGE"
-
 class MainActivity : MenuActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
