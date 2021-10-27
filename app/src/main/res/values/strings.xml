@@ -12,4 +12,5 @@
     <string name="entertainment">Entertainment</string>
     <string name="housing">Housing</string>
     <string name="gifts">Gifts</string>
+    <string name="current_status_of_your_expenses"><tt>Current status of<br />your expenses</tt></string>
 </resources>
