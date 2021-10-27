@@ -90,6 +90,7 @@ open class MenuActivity : AppCompatActivity() {
     private fun showDisplayCurrentStatus() {
 //        val editText = findViewById<EditText>(R.id.editTextTextPersonName)
 //        val message = editText.text.toString()
+        // generic way to start an activity, put extra also can be used to pass data around if needed.
         val message = "HelloWorld"
         val intent = Intent(this, DisplayCurrentStatusActivity::class.java).apply {
             putExtra(EXTRA_MESSAGE, message)
