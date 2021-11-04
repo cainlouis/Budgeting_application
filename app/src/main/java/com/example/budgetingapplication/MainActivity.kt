@@ -1,14 +1,9 @@
 package com.example.budgetingapplication
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.widget.EditText
-import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
+import com.example.budgetingapplication.model.Budget
+import com.example.budgetingapplication.viewmodel.BudgetViewModel
 
 class MainActivity : MenuActivity() {
 
@@ -23,8 +18,7 @@ class MainActivity : MenuActivity() {
         setContentView(R.layout.activity_main)
 
         budgetViewModel = ViewModelProvider(this).get(BudgetViewModel::class.java)
-//        val spendingPerCategory = listOf(Budget("Books"), Budget("Magazines"))
-//        budgetViewModel.insertAll(spendingPerCategory)
-
+        val spendingPerCategory = listOf(Budget("Books"), Budget("Magazines"))
+        budgetViewModel.insertAll(spendingPerCategory)
     }
 }

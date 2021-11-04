@@ -1,4 +1,4 @@
-package com.example.budgetingapplication
+package com.example.budgetingapplication.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -1,6 +1,7 @@
-package com.example.budgetingapplication
+package com.example.budgetingapplication.data
 
 import androidx.room.*
+import com.example.budgetingapplication.model.Budget
 import kotlinx.coroutines.flow.Flow
 
 @Dao
