@@ -50,7 +50,7 @@ class AddSpendingActivity : MenuActivity() {
 
         updateButton.setOnClickListener {
             val moneySpent = findViewById<EditText>(R.id.moneySpentInput).text.toString().toDouble()
-
+            val moneySpentCleaned = String.format(resources.getString(R.string.format), moneySpent).toDouble()
 
             val budgets = budgetViewModel.readAll
             var currentMoneySpent: Double = 0.0
@@ -60,7 +60,7 @@ class AddSpendingActivity : MenuActivity() {
                 Toast.makeText(this, budgets[categoryIndex.toInt()].spending.toString(), Toast.LENGTH_LONG).show()
             })
 
-            val budget = Budget(category, moneySpent + currentMoneySpent)
+            val budget = Budget(category, moneySpentCleaned + currentMoneySpent)
             budgetViewModel.update(budget)
 
 //            val budget = Budget(category, moneySpent + currentMoneySpent)
