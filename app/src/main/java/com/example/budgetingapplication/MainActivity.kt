@@ -23,8 +23,8 @@ class MainActivity : MenuActivity() {
         setContentView(R.layout.activity_main)
 
         budgetViewModel = ViewModelProvider(this).get(BudgetViewModel::class.java)
-        val spendingPerCategory = listOf(Budget("Books"), Budget("Magazines"))
-        budgetViewModel.insertAll(spendingPerCategory)
+//        val spendingPerCategory = listOf(Budget("Books"), Budget("Magazines"))
+//        budgetViewModel.insertAll(spendingPerCategory)
 
     }
 }
