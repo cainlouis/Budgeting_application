@@ -25,4 +25,7 @@ interface BudgetDao {
     @Query("SELECT * FROM budget")
     fun readAll(): Flow<List<Budget>>
 
+    @Query("SELECT category FROM budget")
+    fun readCategories(): Flow<List<String>>
+
 }

@@ -5,4 +5,16 @@
     <string name="clear_all_entries">Clear all entries</string>
     <string name="display_current_status">Display current status</string>
     <string name="home">Home</string>
+    <string name="update">Update</string>
+    <string name="money_spent">Money Spent</string>
+    <string name="category">Category</string>
+    <string name="amount">Amount</string>
+    <string-array name="categories_array">
+        <item>Transportation</item>
+        <item>Home food</item>
+        <item>Junk food</item>
+        <item>Entertainment</item>
+        <item>Housing</item>
+        <item>Gifts</item>
+    </string-array>
 </resources>
