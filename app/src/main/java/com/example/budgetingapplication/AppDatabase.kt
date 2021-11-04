@@ -17,38 +17,92 @@ abstract class AppDatabase : RoomDatabase() {
     companion object {
 
         // For Singleton instantiation
-        @Volatile private var instance: AppDatabase? = null
+        @Volatile
+        private var INSTANCE: AppDatabase? = null
 
-        fun getInstance(context: Context, scope: CoroutineScope): AppDatabase {
-            return instance ?: synchronized(this) {
-                instance ?: buildDatabase(context, scope).also { instance = it }
-            }
-        }
+//        fun getInstance(context: Context, scope: CoroutineScope): AppDatabase {
+//            return instance ?: synchronized(this) {
+//                instance ?: buildDatabase(context, scope).also { instance = it }
+//            }
+//        }
+//
+//        private fun buildDatabase(context: Context, scope: CoroutineScope): AppDatabase {
+//            return Room.databaseBuilder(context, AppDatabase::class.java, "budget_database")
+//                .addCallback(
+//                    object : RoomDatabase.Callback() {
+//                        override fun onCreate(db: SupportSQLiteDatabase) {
+//                            super.onCreate(db)
+//                            instance?.let { database ->
+//                                scope.launch(Dispatchers.IO) {
+//                                    populateDatabase(database.budgetDao())
+//                                }
+//                            }
+//                        }
+//                    }
+//                )
+//                .build()
+//        }
 
-        private fun buildDatabase(context: Context, scope: CoroutineScope): AppDatabase {
-            return Room.databaseBuilder(context, AppDatabase::class.java, "budget_database")
-                .addCallback(
-                    object : RoomDatabase.Callback() {
-                        override fun onCreate(db: SupportSQLiteDatabase) {
-                            super.onCreate(db)
-                            instance?.let { database ->
-                                scope.launch(Dispatchers.IO) {
-                                    populateDatabase(database.budgetDao())
-                                }
-                            }
-                        }
-                    }
+//        fun getInstance(
+//            context: Context,
+//            scope: CoroutineScope
+//        ): AppDatabase {
+//            // if the INSTANCE is not null, then return it,
+//            // if it is, then create the database
+//            return INSTANCE ?: synchronized(this) {
+//                val instance = Room.databaseBuilder(
+//                    context.applicationContext,
+//                    AppDatabase::class.java,
+//                    "budget_database"
+//                )
+//                    // Wipes and rebuilds instead of migrating if no Migration object.
+//                    // Migration is not part of this codelab.
+//                    .fallbackToDestructiveMigration()
+//                    .addCallback(WordDatabaseCallback(scope))
+//                    .build()
+//                INSTANCE = instance
+//                // return instance
+//                instance
+//            }
+//        }
+//
+//        private class WordDatabaseCallback(
+//            private val scope: CoroutineScope
+//        ) : RoomDatabase.Callback() {
+//            /**
+//             * Override the onCreate method to populate the database.
+//             */
+//            override fun onCreate(db: SupportSQLiteDatabase) {
+//                super.onCreate(db)
+//                // If you want to keep the data through app restarts,
+//                // comment out the following line.
+//                INSTANCE?.let { database ->
+//                    scope.launch(Dispatchers.IO) {
+//                        populateDatabase(database.budgetDao())
+//                    }
+//                }
+//            }
+//        }
+
+        fun getInstance(
+            context: Context
+        ): AppDatabase {
+            // if the INSTANCE is not null, then return it,
+            // if it is, then create the database
+            return INSTANCE ?: synchronized(this) {
+                val instance = Room.databaseBuilder(
+                    context.applicationContext,
+                    AppDatabase::class.java,
+                    "budget_database"
                 )
-                .build()
-        }
-
-        suspend fun populateDatabase(budgetDao: BudgetDao) {
-            // Start the app with a clean database every time.
-            // Not needed if you only populate on creation.
-            budgetDao.deleteAll()
-
-            val budget = listOf(Budget("Transportation"), Budget("Home food"), Budget("Junk food"), Budget("Entertainment"), Budget("Housing"), Budget("Gifts"))
-            budgetDao.insertAll(budget)
+                    // Wipes and rebuilds instead of migrating if no Migration object.
+                    // Migration is not part of this codelab.
+                    .fallbackToDestructiveMigration()
+                    .build()
+                INSTANCE = instance
+                // return instance
+                instance
+            }
         }
     }
 }
