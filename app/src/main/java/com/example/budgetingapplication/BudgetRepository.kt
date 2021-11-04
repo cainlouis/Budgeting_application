@@ -4,7 +4,7 @@ import androidx.annotation.WorkerThread
 import kotlinx.coroutines.flow.Flow
 
 class BudgetRepository(private val budgetDao: BudgetDao) {
-    val allCategories: Flow<List<Budget>> = budgetDao.readAll()
+    val allBudgets: Flow<List<Budget>> = budgetDao.readAll()
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
