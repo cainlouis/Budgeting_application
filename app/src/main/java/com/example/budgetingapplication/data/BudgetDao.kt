@@ -16,16 +16,6 @@ interface BudgetDao {
     @Update
     suspend fun updateAll(category: List<Budget>)
 
-    @Delete
-    suspend fun delete(category: Budget)
-
-    @Query("DELETE FROM budget")
-    suspend fun deleteAll()
-
     @Query("SELECT * FROM budget")
     fun readAll(): Flow<List<Budget>>
-
-    @Query("SELECT category FROM budget")
-    fun readCategories(): Flow<List<String>>
-
 }

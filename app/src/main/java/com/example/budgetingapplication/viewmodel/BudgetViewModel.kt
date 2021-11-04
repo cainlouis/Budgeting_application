@@ -10,22 +10,24 @@ import kotlinx.coroutines.launch
 
 class BudgetViewModel(application: Application) : AndroidViewModel(application) {
 
-    val loadAll: LiveData<List<Budget>>
-    val readCategories: LiveData<List<String>>
+    val readAll: LiveData<List<Budget>>
     private val repository : BudgetRepository
 
     init {
         val budgetDao = AppDatabase.getDatabase(application).budgetDao()
         repository = BudgetRepository(budgetDao)
-        loadAll = repository.readAll.asLiveData()
-        readCategories = repository.readCategories.asLiveData()
+        readAll = repository.readAll.asLiveData()
+    }
+
+    fun insertAll(budgets: List<Budget>) = viewModelScope.launch {
+        repository.insertAll(budgets)
     }
 
     fun update(budget: Budget) = viewModelScope.launch {
         repository.update(budget)
     }
 
-    fun insertAll(budgets: List<Budget>) = viewModelScope.launch {
-        repository.insertAll(budgets)
+    fun updateAll(budgets: List<Budget>) = viewModelScope.launch {
+        repository.updateAll(budgets)
     }
 }

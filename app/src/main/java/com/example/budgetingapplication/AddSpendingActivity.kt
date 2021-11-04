@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.budgetingapplication.model.Budget
 import com.example.budgetingapplication.viewmodel.BudgetViewModel
@@ -33,10 +34,12 @@ class AddSpendingActivity : MenuActivity() {
         }
 
         lateinit var  category: String
+        lateinit var  categoryIndex: String
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 category = resources.getStringArray(R.array.categories_array)[p2].toString()
+                categoryIndex = p2.toString()
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -47,8 +50,23 @@ class AddSpendingActivity : MenuActivity() {
 
         updateButton.setOnClickListener {
             val moneySpent = findViewById<EditText>(R.id.moneySpentInput).text.toString().toDouble()
-            val budget = Budget(category, moneySpent)
+
+
+            val budgets = budgetViewModel.readAll
+            var currentMoneySpent: Double = 0.0
+            budgets.observe(this, Observer { budgets ->
+                currentMoneySpent = budgets[categoryIndex.toInt()].spending
+
+                Toast.makeText(this, budgets[categoryIndex.toInt()].spending.toString(), Toast.LENGTH_LONG).show()
+            })
+
+            val budget = Budget(category, moneySpent + currentMoneySpent)
             budgetViewModel.update(budget)
+
+//            val budget = Budget(category, moneySpent + currentMoneySpent)
+//            budgetViewModel.update(budget)
+
+//            Toast.makeText(this, budgets[0].spending.toString(), Toast.LENGTH_LONG).show()
         }
     }
 }
