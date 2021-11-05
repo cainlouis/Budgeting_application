@@ -49,8 +49,7 @@ class AddSpendingActivity : MenuActivity() {
 
         val budgets1 = budgetViewModel.readAll
         budgets1.observe(this, Observer { budgets ->
-
-            Toast.makeText(this, budgets[0].spending.toString(), Toast.LENGTH_LONG).show()
+            //
         })
 
 
@@ -58,24 +57,19 @@ class AddSpendingActivity : MenuActivity() {
 
         updateButton.setOnClickListener {
             val moneySpent = findViewById<EditText>(R.id.moneySpentInput).text.toString().toDouble()
-
+            val moneySpentCleaned = String.format(resources.getString(R.string.format), moneySpent).toDouble()
 
             val budgets = budgetViewModel.readAll
             var currentMoneySpent: Double = 0.0
-            budgets.observe(this, Observer { budgets ->
-//                Toast.makeText(this, categoryIndex, Toast.LENGTH_LONG).show()
-                currentMoneySpent = budgets[categoryIndex.toInt()].spending
-
-                Toast.makeText(this, budgets[categoryIndex.toInt()].spending.toString(), Toast.LENGTH_LONG).show()
+            budgets.observe(this, Observer { budgets2 ->
+                currentMoneySpent = budgets2[categoryIndex.toInt()].spending
             })
 
-            val budget = Budget(category, moneySpent + currentMoneySpent)
+            val budget = Budget(category, moneySpentCleaned + currentMoneySpent)
             budgetViewModel.update(budget)
 
-//            val budget = Budget(category, moneySpent + currentMoneySpent)
-//            budgetViewModel.update(budget)
 
-//            Toast.makeText(this, budgets[0].spending.toString(), Toast.LENGTH_LONG).show()
+           Toast.makeText(this, resources.getString(R.string.onAddSpending), Toast.LENGTH_LONG).show()
         }
     }
 }
