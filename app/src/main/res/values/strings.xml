@@ -8,9 +8,13 @@
     <string name="update">Update</string>
     <string name="money_spent">Money Spent</string>
     <string name="category">Category</string>
+    <string name="reset_button">Reset all categories</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
     <string name="amount">0.00</string>
     <string name="format">%.2f</string>
-    <string name="onAddSpending">Amount added sucessfully</string>
+    <string name="onAddSpending">Amount added successfully</string>
+
     <string-array name="categories_array">
         <item>Transportation</item>
         <item>Home food</item>
