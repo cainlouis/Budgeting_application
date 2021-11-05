@@ -24,7 +24,6 @@ class ClearAllEntriesActivity : MenuActivity() {
 
         button.setOnClickListener() {
             createDialog()
-            resetData()
         }
     }
 
@@ -37,15 +36,21 @@ class ClearAllEntriesActivity : MenuActivity() {
         val confirmationDialog = AlertDialog.Builder(this)
             .setTitle("Confirmation")
             .setMessage("Are you sure to reset all categories?")
-            .setPositiveButton("Yes") { _, _ ->
+            .setPositiveButton(R.string.yes) { _, _ ->
+                resetData()
                 Toast.makeText(this, "All categories have been reset", Toast.LENGTH_SHORT).show() // _, _ are anonymous value parameter
             }
-            .setNegativeButton("No") { _, _ ->
+            .setNegativeButton(R.string.no) { _, _ ->
                 Toast.makeText(this, "All categories were not reset", Toast.LENGTH_SHORT).show()
             }.create()
         confirmationDialog.show() // show the dialog
     }
 
+    /**
+     * @author Alec Phan
+     *
+     * This method will set all the categories back to 0
+     */
     private fun resetData() {
         val clearBudgetList = listOf(
             Budget("Transportation", 0.0),

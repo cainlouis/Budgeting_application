@@ -10,6 +10,8 @@
     <string name="category">Category</string>
     <string name="amount">Amount</string>
     <string name="reset_button">Reset all categories</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
     <string-array name="categories_array">
         <item>Transportation</item>
         <item>Home food</item>
