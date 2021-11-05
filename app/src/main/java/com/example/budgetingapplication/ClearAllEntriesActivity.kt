@@ -1,12 +1,11 @@
 package com.example.budgetingapplication
 
-import android.media.metrics.Event
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.lifecycle.ViewModel
+
 import androidx.lifecycle.ViewModelProvider
 import com.example.budgetingapplication.model.Budget
 import com.example.budgetingapplication.viewmodel.BudgetViewModel
@@ -22,7 +21,7 @@ class ClearAllEntriesActivity : MenuActivity() {
         button = findViewById(R.id.reset_btn)
         budgetViewModel = ViewModelProvider(this).get(BudgetViewModel::class.java)
 
-        button.setOnClickListener() {
+        button.setOnClickListener {
             createDialog()
         }
     }
