@@ -4,6 +4,10 @@ import androidx.room.*
 import com.example.budgetingapplication.model.Budget
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * @author Zacharie Makeen and Nael Louis
+ * Contains all the queries to the db
+ */
 @Dao
 interface BudgetDao {
 

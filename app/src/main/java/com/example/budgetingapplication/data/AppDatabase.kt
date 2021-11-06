@@ -6,9 +6,13 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.budgetingapplication.model.Budget
 
+/**
+ * @author Zacharie Makeen and Nael Louis
+ * Create the instance for the db
+ */
 @Database(entities = [Budget::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
-
+    //get the dao
     abstract fun budgetDao(): BudgetDao
 
     companion object {
@@ -16,7 +20,7 @@ abstract class AppDatabase : RoomDatabase() {
         // For Singleton instantiation
         @Volatile
         private var INSTANCE: AppDatabase? = null
-
+        //if database instance null create a new one and return instance
         fun getDatabase(context: Context): AppDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(

@@ -6,6 +6,11 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
+/**
+ * @author Nael Louis
+ * This class creates the database instance and contains all the query needed for phase 1
+ * Not used after room implementation
+ */
 class DBHandler(context: Context, factory: SQLiteDatabase.CursorFactory?) :
     SQLiteOpenHelper(context, DATABASE_NAME, factory, DATABASE_VERSION) {
 
