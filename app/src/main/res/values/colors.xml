@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="dark_jungle_green">#071E22</color>
+    <color name="myrtle_green">#1D7874</color>
+    <color name="wintergreen_dream">#679289</color>
+    <color name="redwood">#AB605D</color>
+    <color name="red_pigment">#EE2E31</color>
+    <color name="medium_purple">#9883E5</color>
+    <color name="gainsboro">#E0D8DE</color>
 </resources>

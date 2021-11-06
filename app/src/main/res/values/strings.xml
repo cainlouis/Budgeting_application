@@ -5,6 +5,15 @@
     <string name="clear_all_entries">Clear all entries</string>
     <string name="display_current_status">Display current status</string>
     <string name="home">Home</string>
+    <string name="transportation">Transportation</string>
+    <string name="_display_status_hint">1234.95</string>
+    <string name="home_food">Home food</string>
+    <string name="junk_food">Junk Food</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="housing">Housing</string>
+    <string name="gifts">Gifts</string>
+
+    <string name="current_status_of_your_expenses"><tt>Current status of<br />your expenses</tt></string>
     <string name="update">Update</string>
     <string name="money_spent">Money Spent</string>
     <string name="category">Category</string>
