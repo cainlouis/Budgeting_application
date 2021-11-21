@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.budgetingapplication.adapter.BudgetListAdapter
 import com.example.budgetingapplication.viewmodel.BudgetViewModel
 
 /**
@@ -24,12 +25,12 @@ class DisplayCurrentStatusActivity : MenuActivity() {
         budgetViewModel = ViewModelProvider(this).get(BudgetViewModel::class.java)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = DisplayCurrentStatusAdapter()
+        val adapter = BudgetListAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         budgetViewModel.readAll.observe(this, Observer { budgets ->
-            adapter.setData(budgets)
+            adapter.submitList(budgets)
         })
     }
 }
