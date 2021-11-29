@@ -14,9 +14,6 @@ class DisplayCurrentStatusActivity : MenuActivity() {
 
     private lateinit var budgetViewModel: BudgetViewModel
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         budgetViewModel = ViewModelProvider(this).get(BudgetViewModel::class.java)
@@ -32,6 +29,7 @@ class DisplayCurrentStatusActivity : MenuActivity() {
 
         val budgets = budgetViewModel.readAll
 
+        // set the texts
         budgets.observe(this, {data ->
             transportation.text = data[0].spending.toString()
             homeFood.text = data[1].spending.toString()
