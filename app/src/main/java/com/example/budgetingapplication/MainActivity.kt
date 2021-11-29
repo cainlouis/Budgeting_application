@@ -4,14 +4,15 @@ import android.os.Bundle
 import android.view.View
 import com.anychart.AnyChart
 import com.anychart.AnyChartView
-import com.anychart.charts.Pie
 import com.anychart.chart.common.dataentry.DataEntry
 import com.anychart.chart.common.dataentry.ValueDataEntry
+
 
 class MainActivity : MenuActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         val pie = AnyChart.pie()
 
