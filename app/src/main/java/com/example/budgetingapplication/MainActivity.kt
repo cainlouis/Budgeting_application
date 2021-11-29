@@ -2,17 +2,26 @@ package com.example.budgetingapplication
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
 import com.anychart.AnyChart
 import com.anychart.AnyChartView
 import com.anychart.chart.common.dataentry.DataEntry
 import com.anychart.chart.common.dataentry.ValueDataEntry
+import com.example.budgetingapplication.viewmodel.BudgetViewModel
 
 class MainActivity : MenuActivity() {
+
+    private lateinit var budgetViewModel: BudgetViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val pie = AnyChart.pie()
+
+        val budgets = budgetViewModel.readAll
+        val money = 0.0
+
 
         val data: MutableList<DataEntry> = ArrayList()
         data.add(ValueDataEntry("Transportation", 10000 ))
