@@ -6,10 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.androidplot.pie.PieChart
+    <com.anychart.AnyChartView
         android:id="@+id/pieChart"
-        style="@style/APDefacto.Light"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         />
 </RelativeLayout>
