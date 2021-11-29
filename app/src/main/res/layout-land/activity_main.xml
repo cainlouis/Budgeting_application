@@ -10,13 +10,26 @@
     <fragment
         android:id="@+id/fragmentPie"
         android:name="com.example.budgetingapplication.PieFragment"
-        android:layout_width="409dp"
-        android:layout_height="587dp"
+        android:layout_width="394dp"
+        android:layout_height="353dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.263"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.743" />
+        app:layout_constraintVertical_bias="0.495" />
+
+    <fragment
+        android:id="@+id/fragmentAbout"
+        android:name="com.example.budgetingapplication.AboutFragment"
+        android:layout_width="207dp"
+        android:layout_height="267dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.609"
+        app:layout_constraintStart_toEndOf="@+id/fragmentPie"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.402" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

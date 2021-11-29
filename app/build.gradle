@@ -39,7 +39,6 @@ dependencies {
 
     // Room configurations
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
     androidTestImplementation "androidx.room:room-testing:$rootProject.roomVersion"
 
@@ -78,7 +77,7 @@ dependencies {
     implementation 'com.androidplot:androidplot-core:1.5.7'
 
     // fragments
-    implementation("androidx.fragment:fragment-ktx:1.4.0")
+    implementation 'androidx.fragment:fragment-ktx:1.4.0'
     implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
     implementation 'com.android.support:multidex:1.0.3'
 }

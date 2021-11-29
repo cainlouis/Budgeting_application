@@ -1,8 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".AboutFragment">
 
+    <TextView
+        android:id="@+id/zach"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/zacharie_makeen_1938801"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/kirill"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/appVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/version_1_0"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/alec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/alec_phan_1834104"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/appVersion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/nael"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nael_louis_1934115"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/zach"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.547"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/kirill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kirill_parhomenco_1933830"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/alec"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.579"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

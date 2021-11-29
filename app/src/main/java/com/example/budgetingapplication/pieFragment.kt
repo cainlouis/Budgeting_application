@@ -19,9 +19,8 @@ import com.example.budgetingapplication.viewmodel.BudgetViewModel
  * Use the [PieFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class PieFragment : Fragment() {
+class PieFragment : Fragment(R.layout.fragment_pie) {
     private lateinit var budgetViewModel: BudgetViewModel
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -35,6 +34,7 @@ class PieFragment : Fragment() {
 
         val budgets = budgetViewModel.readAll
         val data: MutableList<DataEntry> = ArrayList()
+        val anyChartView = getView()?.findViewById(R.id.pieChart) as AnyChartView
 
         budgets.observe(this, { values ->
             data.add(ValueDataEntry("Transportation", values[0].spending))
@@ -46,17 +46,12 @@ class PieFragment : Fragment() {
 
             // Add the data to the pie
             pie.data(data)
-            val anyChartView = getView()?.findViewById(R.id.pieChart) as AnyChartView
+            anyChartView.clear()
             anyChartView.setChart(pie)
+
+
         })
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pie, container, false)
-    }
 
 }
