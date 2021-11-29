@@ -51,6 +51,7 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/transportation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/_display_status_hint"
@@ -80,6 +81,7 @@
                 android:textSize="25sp" />
 
             <TextView
+                android:id="@+id/homeFood"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/_display_status_hint"
@@ -109,6 +111,7 @@
                 android:textSize="25sp" />
 
             <TextView
+                android:id="@+id/junkFood"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/_display_status_hint"
@@ -138,6 +141,7 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/entertainment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/_display_status_hint"
@@ -167,6 +171,7 @@
                 android:textSize="25sp" />
 
             <TextView
+                android:id="@+id/housing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/_display_status_hint"
@@ -196,6 +201,7 @@
                 android:textSize="25sp" />
 
             <TextView
+                android:id="@+id/gifts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/_display_status_hint"

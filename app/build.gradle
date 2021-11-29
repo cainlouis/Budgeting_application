@@ -74,4 +74,9 @@ dependencies {
 
     // Pie chart
     implementation 'com.androidplot:androidplot-core:1.5.7'
+
+    // fragments
+    implementation("androidx.fragment:fragment-ktx:1.4.0")
+
+
 }
