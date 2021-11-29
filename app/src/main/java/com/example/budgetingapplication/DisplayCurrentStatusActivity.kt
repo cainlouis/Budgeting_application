@@ -2,8 +2,11 @@ package com.example.budgetingapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.budgetingapplication.adapter.BudgetListAdapter
 import com.example.budgetingapplication.viewmodel.BudgetViewModel
 
 /**
@@ -16,27 +19,18 @@ class DisplayCurrentStatusActivity : MenuActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        budgetViewModel = ViewModelProvider(this).get(BudgetViewModel::class.java)
         setContentView(R.layout.activity_display_current_status)
 
-        // setup text views
-        val transportation = findViewById<TextView>(R.id.transportation)
-        val homeFood = findViewById<TextView>(R.id.homeFood)
-        val junkFood = findViewById<TextView>(R.id.junkFood)
-        val entertainment = findViewById<TextView>(R.id.entertainment)
-        val housing = findViewById<TextView>(R.id.housing)
-        val gifts = findViewById<TextView>(R.id.gifts)
+        //get the view model that will be used to interact with db
+        budgetViewModel = ViewModelProvider(this).get(BudgetViewModel::class.java)
 
-        val budgets = budgetViewModel.readAll
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
+        val adapter = BudgetListAdapter()
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // set the texts
-        budgets.observe(this, {data ->
-            transportation.text = data[0].spending.toString()
-            homeFood.text = data[1].spending.toString()
-            junkFood.text = data[2].spending.toString()
-            entertainment.text = data[3].spending.toString()
-            housing.text = data[4].spending.toString()
-            gifts.text = data[5].spending.toString()
+        budgetViewModel.readAll.observe(this, Observer { budgets ->
+            adapter.submitList(budgets)
         })
     }
 }
