@@ -2,7 +2,7 @@ package com.example.budgetingapplication
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.anychart.AnyChart
 import com.anychart.AnyChartView
 import com.anychart.chart.common.dataentry.DataEntry
@@ -16,24 +16,29 @@ class MainActivity : MenuActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        budgetViewModel = ViewModelProvider(this).get(BudgetViewModel::class.java)
 
         val pie = AnyChart.pie()
 
         val budgets = budgetViewModel.readAll
-        val money = 0.0
-
-
         val data: MutableList<DataEntry> = ArrayList()
-        data.add(ValueDataEntry("Transportation", 10000 ))
-        data.add(ValueDataEntry("Home food", 20000 ))
-        data.add(ValueDataEntry("Junk food", 5000 ))
-        data.add(ValueDataEntry("Entertainment", 20000 ))
-        data.add(ValueDataEntry("Housing", 40000 ))
-        data.add(ValueDataEntry("Gifts", 5000 ))
 
-        pie.data(data)
+        budgets.observe(this, {values ->
+            data.add(ValueDataEntry("Transportation", values[0].spending ))
+            data.add(ValueDataEntry("Home food", values[1].spending ))
+            data.add(ValueDataEntry("Junk food", values[2].spending ))
+            data.add(ValueDataEntry("Entertainment", values[3].spending ))
+            data.add(ValueDataEntry("Housing", values[4].spending ))
+            data.add(ValueDataEntry("Gifts", values[5].spending ))
 
-        val anyChartView = findViewById<View>(R.id.pieChart) as AnyChartView
-        anyChartView.setChart(pie)
+            // Add the data to the pie
+            pie.data(data)
+
+            val anyChartView = findViewById<View>(R.id.pieChart) as AnyChartView
+            anyChartView.setChart(pie)
+        })
+
+
+
     }
 }
