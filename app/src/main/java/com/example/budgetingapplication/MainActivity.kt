@@ -2,6 +2,8 @@ package com.example.budgetingapplication
 
 import android.graphics.Color
 import android.os.Bundle
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.ViewModelProvider
 import com.androidplot.pie.PieChart
 import com.androidplot.pie.Segment
@@ -23,7 +25,7 @@ class MainActivity : MenuActivity() {
         arrayList.add(20)
         arrayList.add(5)
         arrayList.add(15)
-        arrayList.add(30)
+        arrayList.add(50)
         arrayList.add(10)
 
         val transportation = Segment("Transportation", arrayList.get(0))
@@ -33,12 +35,12 @@ class MainActivity : MenuActivity() {
         val housing = Segment("Housing", arrayList.get(4))
         val gifts = Segment("Gift", arrayList.get(5))
 
-        val transportationSF = SegmentFormatter(Color.BLACK)
-        val homeFoodSF = SegmentFormatter(Color.RED)
-        val junkFoodSF = SegmentFormatter(Color.DKGRAY)
-        val entertainmentSF = SegmentFormatter(Color.MAGENTA)
-        val housingSF = SegmentFormatter(Color.YELLOW)
-        val giftsSF = SegmentFormatter(Color.BLUE)
+        val transportationSF = SegmentFormatter(ResourcesCompat.getColor(resources, R.color.dark_jungle_green, null))
+        val homeFoodSF = SegmentFormatter(ResourcesCompat.getColor(resources, R.color.myrtle_green, null))
+        val junkFoodSF = SegmentFormatter(ResourcesCompat.getColor(resources, R.color.red_pigment, null))
+        val entertainmentSF = SegmentFormatter(ResourcesCompat.getColor(resources, R.color.medium_purple, null))
+        val housingSF = SegmentFormatter(ResourcesCompat.getColor(resources, R.color.redwood, null))
+        val giftsSF = SegmentFormatter(ResourcesCompat.getColor(resources, R.color.wintergreen_dream, null))
 
 
         val pieChart = findViewById<PieChart>(R.id.pieChart)
