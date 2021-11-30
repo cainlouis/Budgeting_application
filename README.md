@@ -2,6 +2,12 @@
 
 A simple budgeting application to keep track of how much they spend on different categories.
 
+AUTHORS:
+Zacharie Makeen - 1938801
+Nael Louis - 1934115
+Kirill Parhomenco - 1933830
+Alec Phan - 1834104
+
 ## Getting started
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.
